@@ -75,6 +75,7 @@ spec:
   selector:
     matchLabels:
       app: my-db
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
@@ -94,3 +95,20 @@ spec:
     - protocol: TCP
       port: 3306
       targetPort: 3306
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: persist
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/mnt/persist"
