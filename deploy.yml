@@ -37,7 +37,7 @@ spec:
       volumes:
         - name: db-storage
           persistentVolumeClaim:
-            claimName: persist-claim
+            claimName: mariadb-claim
       containers:
         - name: mariadb
           image: mariadb
@@ -70,7 +70,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: persist-claim
+  name: mariadb-claim
 spec:
   selector:
     matchLabels:
@@ -101,7 +101,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: persist
+  name: wobsite-mariadb
   labels:
     type: local
 spec:
@@ -111,4 +111,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/var/mnt/persist"
+    path: "/var/mnt/wobsite-mariadb"
