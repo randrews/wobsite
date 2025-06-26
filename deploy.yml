@@ -103,7 +103,7 @@ kind: PersistentVolume
 metadata:
   name: wobsite-mariadb
   labels:
-    type: local
+    type: my-db
 spec:
   storageClassName: manual
   capacity:
