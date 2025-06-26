@@ -75,6 +75,7 @@ spec:
   selector:
     matchLabels:
       app: my-db
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
